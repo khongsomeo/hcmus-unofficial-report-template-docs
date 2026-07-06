@@ -47,3 +47,16 @@ All detailed setup, structure, and compilation guides have been consolidated int
 
 👉 **[Go to Report Template Documentation](Report)**
 
+---
+
+## 🔬 Scientific Project Template
+
+This template is designed for academic scientific research projects, including the final report and the formal acceptance board request form.
+
+### 📖 User Guides
+
+All detailed setup, structure, and compilation guides have been consolidated into a single comprehensive page:
+
+👉 **[Go to Scientific Project Template Documentation](Scientific-Project)**
+
+
