@@ -1,6 +1,6 @@
 # 🔬 Scientific Project Template Documentation
 
-This comprehensive guide covers the setup, structure, and compilation of the unofficial HCMUS Scientific Research Project Report and Acceptance Request Form LaTeX templates.
+This comprehensive guide covers the setup, structure, and compilation of the unofficial HCMUS **Scientific Project** LaTeX templates (located in the [scientific-research/](https://github.com/khongsomeo/hcmus-unofficial-report-template/tree/main/scientific-research) directory of the repository), which includes the final project report and the formal acceptance request form.
 
 ---
 
