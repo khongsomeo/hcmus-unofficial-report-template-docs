@@ -47,3 +47,23 @@ All detailed setup, structure, and compilation guides have been consolidated int
 
 👉 **[Go to Report Template Documentation](Report)**
 
+---
+
+## 🔬 Scientific Project Template
+
+This template is designed for academic scientific research projects, including the final report and the formal acceptance board request form. The template files are located in the [scientific-research/](https://github.com/khongsomeo/hcmus-unofficial-report-template/tree/main/scientific-research) directory.
+
+### 🎨 Previews
+Here is a side-by-side preview of the compiled project layout:
+
+| Trang bìa báo cáo | Đơn đề nghị nghiệm thu |
+| :---: | :---: |
+| <img src="img/Scientific-Project-Cover-Preview.png" alt="Trang bìa báo cáo" width="140"/> | <img src="img/Scientific-Project-Form-Preview.png" alt="Đơn đề nghị nghiệm thu" width="140"/> |
+
+### 📖 User Guides
+
+All detailed setup, structure, and compilation guides have been consolidated into a single comprehensive page:
+
+👉 **[Go to Scientific Project Template Documentation](Scientific-Project)**
+
+
