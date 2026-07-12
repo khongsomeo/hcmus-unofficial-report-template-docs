@@ -8,7 +8,8 @@ This comprehensive guide covers the setup, structure, and compilation of the uno
 1. [⚙️ Project Report Quick Setup in `Report/Config.tex`](#project-report-quick-setup-in-reportconfigtex)
 2. [📄 Project Report Structure](#project-report-structure)
 3. [⚙️ Acceptance Request Form Setup](#acceptance-request-form-setup)
-4. [🛠️ Local Compilation Guide](#local-compilation-guide)
+4. [⚙️ Individual Product Report Setup](#individual-product-report-setup)
+5. [🛠️ Local Compilation Guide](#local-compilation-guide)
 
 ---
 
@@ -123,6 +124,28 @@ Both templates are designed with two compilation modes: **Review** (for drafting
 
 ---
 
+## ⚙️ Individual Product Report Setup
+
+The individual product report template (stored in the `product-report/` directory) is designed for project members or the principal investigator to document their specific research deliverables.
+
+Open [main.tex](https://github.com/khongsomeo/hcmus-unofficial-report-template/blob/main/scientific-research/product-report/main.tex) in the `product-report/` directory and configure the parameter fields:
+
+```tex
+\TenDeTai{Tên đầy đủ của đề tài nghiên cứu ở đây}
+\MasoDeTai{ABCD-2026}
+\HoTen{Nguyễn Văn A}
+\VaiTro{Chủ nhiệm / Thành viên}
+\HopDong{HĐCN/XX-2026}
+```
+
+### 📄 Folder Structure & Content Areas
+*   `main.tex`: Entry driver file containing user metadata, the summary table, and detailed product descriptions.
+*   `baocaosanpham.cls`: Simple layout class defining a 1-inch margin layout, Times New Roman fonts, and spacing.
+*   **Summary Table (`tomtatketqua`)**: Enclose your task list in a `tasks` environment and the compiled outputs list inside `\reportsanpham{...}`.
+*   **Minh chứng (`minhchung`)**: Section for describing detailed results, including subsections (`\subsection`), tables, and figures.
+
+---
+
 ## 🛠️ Local Compilation Guide
 
 ### 1. Automated Compilation (Recommended)
@@ -130,14 +153,15 @@ Navigate to the `scientific-research/` directory and execute the provided helper
 ```bash
 bash build.sh
 ```
-This script will present an interactive menu allowing you to choose whether to compile the **Project Report** or the **Acceptance Request Form**.
+This script will present an interactive menu allowing you to choose whether to compile the **Project Report**, the **Acceptance Request Form**, or the **Individual Product Report**.
 
 Alternatively, you can compile specific templates directly by passing the target name:
 - **Compile Report**: `bash build.sh report`
 - **Compile Form**: `bash build.sh form`
+- **Compile Product Report**: `bash build.sh product`
 
 ### 2. Manual Compilation
-If you prefer manual compilation, run the following command sequence inside either the `project-report/` or `acceptance-form/` directories:
+If you prefer manual compilation, run the following command sequence inside the template directories (`project-report/`, `acceptance-form/`, or `product-report/`):
 ```bash
 pdflatex main
 bibtex main     # (Only required for project-report to compile references)
