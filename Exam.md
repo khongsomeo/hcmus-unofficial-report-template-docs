@@ -1,0 +1,110 @@
+# 📝 Exam/Quiz Class Template Documentation
+
+This comprehensive guide covers the setup, structure, and compilation of the unofficial HCMUS **Exam/Quiz** LaTeX template (located in the [exam/](https://github.com/khongsomeo/hcmus-unofficial-report-template/tree/main/exam) directory of the repository).
+
+---
+
+## 📌 Table of Contents
+1. [⚙️ Quick Setup in `main.tex`](#quick-setup-in-maintex)
+2. [📄 Exam Template Structure](#exam-template-structure)
+3. [🛠️ Toggling Solutions/Answers](#toggling-solutionsanswers)
+4. [💻 Source Code Highlighting](#source-code-highlighting)
+5. [🛠️ Local Compilation Guide](#local-compilation-guide)
+
+---
+
+## ⚙️ Quick Setup in `main.tex`
+
+Open [main.tex](https://github.com/khongsomeo/hcmus-unofficial-report-template/blob/main/exam/main.tex) and configure the metadata parameters at the top of the file:
+
+```tex
+\documentclass[a4paper,14pt,oneside]{hcmusexam}
+
+\ExamName{Quiz 01}
+\ExamTime{20 mins}
+\ExamDate{October 22, 2025}
+\CourseName{Data Structures and Algorithms}
+\ClassName{25C05}
+
+\CanAnswerInVietnamese
+```
+
+### Parameter Explanations:
+*   `\ExamName{...}`: The name of the exam sheet (e.g. `Quiz 01`, `Midterm Exam`, `Final Exam`).
+*   `\ExamTime{...}`: Separate command to specify the exam duration (e.g. `20 mins`, `90 mins`). If omitted, it defaults to blank. If provided, it is automatically formatted in parentheses next to the exam name.
+*   `\ExamDate{...}`: Date of the exam session.
+*   `\CourseName{...}`: The name of the academic course.
+*   `\ClassName{...}`: The class section/code.
+*   `\CanAnswerInVietnamese`: Boolean toggle command. When invoked, it automatically stamps the official bilingual answering permission note: *Note: Students can answer the questions in English or Vietnamese.* at the bottom of the student identity header box. If not invoked, the note remains hidden.
+
+---
+
+## 📄 Exam Template Structure
+
+The template is organized as follows:
+*   `main.tex`: Entry driver file containing exam parameters and questions list.
+*   `hcmusexam.cls`: Custom LaTeX class file (inherits from standard `exam` class) containing margins, page boundaries, listings styling, headers, and name boxes.
+*   **Identity Box (`addnamebox`)**: Invokes a clean box at the top of the first page containing fields for Full name, Student ID, and the optional bilingual note.
+*   **Questions block (`questions`)**: Standard `exam` class environment wrapping all questions (`\question`), multiple choices (`choices` environment), and solution blocks (`solution` environment).
+*   **End marker (`headline{END}`)**: Generates a centered, dotted line marking the end of the exam paper.
+
+---
+
+## 🛠️ Toggling Solutions/Answers
+
+The template supports generating both the blank student test paper and the completed teacher's answer key from the same source file.
+
+To display correct choices and solution blocks, uncomment `\printanswers` in `main.tex`:
+
+```tex
+% Show answers: uncomment to display solution blocks and correct choices in red
+\printanswers
+```
+
+When enabled:
+- The correct choice defined via `\correctchoice` will be highlighted in **red color**.
+- Solution blocks inside `\begin{solution} ... \end{solution}` will be printed in **red text**.
+
+---
+
+## 📊 Layout & Choices Formatting
+
+The template supports both vertical and horizontal multiple-choice layout blocks:
+*   **Vertical Choices (`choices` environment)**: Standard vertical list block for long options.
+*   **Equalized Horizontal Choices (`oneparchoices` environment)**: Redefined inside `hcmusexam.cls` to distribute choices symmetrically across the page. Instead of being bunched together, options automatically stretch to fill the text width evenly using `\hfill`, keeping the margins aligned.
+
+---
+
+## 💻 Source Code Highlighting
+
+The custom class `hcmusexam.cls` imports the `listings` package and pre-configures it for styling source code blocks (specifically tailored for C++ syntax).
+
+```latex
+\begin{lstlisting}
+int main() {
+    std::cout << "Hello, HCMUS!";
+    return 0;
+}
+\end{lstlisting}
+```
+
+This will automatically format keywords in blue, comments in green, and strings in purple with line numbering on the left.
+
+---
+
+## 🛠️ Local Compilation Guide
+
+### 1. Automated Compilation (Recommended)
+Navigate to the `exam/` directory and execute the provided helper script:
+```bash
+bash build.sh
+```
+
+### 2. Manual Compilation
+If you prefer manual compilation, run the following command sequence inside the `exam/` directory:
+```bash
+pdflatex main
+pdflatex main
+```
+*(No BibTeX is required as this template does not include a bibliography by default).*
+
