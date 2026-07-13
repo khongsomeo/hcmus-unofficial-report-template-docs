@@ -75,6 +75,25 @@ The template supports both vertical and horizontal multiple-choice layout blocks
 
 ---
 
+## 📝 MCQ Answer Sheets
+
+The class introduces a specialized command `\MCQAnswerBox{style}` to dynamically render multiple-choice answer blocks at any position in the document. The sheet automatically counts the total number of exam questions (`\numquestions`) and populates correct answers from the template's `\correctchoice` markers when `\printanswers` is active.
+
+### 1. Circle-Filling Style (`\MCQAnswerBox{circle}`)
+*   Generates a double-column bubble grid matching the total question count.
+*   Renders choices inline (e.g. `(A) (B) (C) (D)`).
+*   If `\printanswers` is active, the correct choice bubble is highlighted in **bold red**.
+*   **Customization**: Define the number of choices (default is 4) using `\NumChoices{N}` (supports up to 8: `A` to `H`).
+
+### 2. Table-Filling Style (`\MCQAnswerBox{fill}`)
+*   Generates a full-page width tabular grid (using `tabularx`) with two rows:
+    - **Row 1**: Question numbers (`1`, `2`, `3` ...).
+    - **Row 2**: Answer boxes for students to write in.
+*   If `\printanswers` is active, correct answer letters populate the second row cells in **bold red**.
+*   **Customization**: Define the maximum questions allowed per row (default is 10) using `\MaxMCQPerRow{M}`. If the total number of MCQ questions exceeds `M`, it will automatically split into stacked table rows, separating each header and student writing block.
+
+---
+
 ## 💻 Source Code Highlighting
 
 The custom class `hcmusexam.cls` imports the `listings` package and pre-configures it for styling source code blocks (specifically tailored for C++ syntax).
