@@ -26,7 +26,7 @@ Open [main.tex](https://github.com/khongsomeo/hcmus-unofficial-report-template/b
 \CourseName{Data Structures and Algorithms}
 \ClassName{25C05}
 
-\CanAnswerInVietnamese
+\ExamNote{Students can answer the questions in English or Vietnamese.}
 ```
 
 ### Parameter Explanations:
@@ -35,7 +35,7 @@ Open [main.tex](https://github.com/khongsomeo/hcmus-unofficial-report-template/b
 *   `\ExamDate{...}`: Date of the exam session.
 *   `\CourseName{...}`: The name of the academic course.
 *   `\ClassName{...}`: The class section/code.
-*   `\CanAnswerInVietnamese`: Boolean toggle command. When invoked, it automatically stamps the official bilingual answering permission note: *Note: Students can answer the questions in English or Vietnamese.* at the bottom of the student identity header box. If not invoked, the note remains hidden.
+*   `\ExamNote{...}`: Text parameter to define a custom exam note at the bottom of the student identity header box. If empty or omitted, the note section and its extra padding are hidden. It also supports `\CanAnswerInVietnamese` as a backward-compatible shortcut for the bilingual answer permission note: *Students can answer the questions in English or Vietnamese.*
 
 ---
 
@@ -62,8 +62,9 @@ To display correct choices and solution blocks, uncomment `\printanswers` in `ma
 ```
 
 When enabled:
-- The correct choice defined via `\correctchoice` will be highlighted in **red color**.
-- Solution blocks inside `\begin{solution} ... \end{solution}` will be printed in **red text**.
+- The correct choice defined via `\correctchoice` will be highlighted in **crimson red** (defined globally as `AnswerColor` matching `red!75!black`).
+- Solution blocks inside `\begin{solution} ... \end{solution}` or `\begin{solutionordottedlines} ... \end{solutionordottedlines}` will render in a Beamer-like modern style (accented with a `3pt` thick left-margin line in `AnswerColor` and a subtle light red background).
+- The correct answers inside the MCQ Answer Sheets are automatically rendered in `AnswerColor` (filled circles for bubble style and bold colored letters for table style).
 
 ---
 
@@ -77,19 +78,21 @@ The template supports both vertical and horizontal multiple-choice layout blocks
 
 ## 📝 MCQ Answer Sheets
 
-The class introduces a specialized command `\MCQAnswerBox{style}` to dynamically render multiple-choice answer blocks at any position in the document. The sheet automatically counts the total number of exam questions (`\numquestions`) and populates correct answers from the template's `\correctchoice` markers when `\printanswers` is active.
+The class introduces a specialized command `\MCQAnswerBox[instruction]{style}` to dynamically render multiple-choice answer blocks at any position in the document. The sheet automatically counts the total number of exam questions (`\numquestions`) and populates correct answers from the template's `\correctchoice` markers when `\printanswers` is active.
 
-### 1. Circle-Filling Style (`\MCQAnswerBox{circle}`)
+### 1. Circle-Filling Style (`\MCQAnswerBox[instruction]{circle}`)
 *   Generates a double-column bubble grid matching the total question count.
 *   Renders choices inline (e.g. `(A) (B) (C) (D)`).
-*   If `\printanswers` is active, the correct choice bubble is highlighted in **bold red**.
+*   If `\printanswers` is active, the correct choice bubble is highlighted in **bold crimson red** (`AnswerColor`).
+*   **Optional instruction parameter**: By invoking `\MCQAnswerBox[instruction]{circle}`, you append a clear set of student filling guidelines (drawing a TikZ sample filled bubble) right above the sheets.
 *   **Customization**: Define the number of choices (default is 4) using `\NumChoices{N}` (supports up to 8: `A` to `H`).
 
-### 2. Table-Filling Style (`\MCQAnswerBox{fill}`)
+### 2. Table-Filling Style (`\MCQAnswerBox[instruction]{fill}`)
 *   Generates a full-page width tabular grid (using `tabularx`) with two rows:
     - **Row 1**: Question numbers (`1`, `2`, `3` ...).
     - **Row 2**: Answer boxes for students to write in.
-*   If `\printanswers` is active, correct answer letters populate the second row cells in **bold red**.
+*   If `\printanswers` is active, correct answer letters populate the second row cells in **bold crimson red** (`AnswerColor`).
+*   **Optional instruction parameter**: By invoking `\MCQAnswerBox[instruction]{fill}`, you append clear student write-in instructions right above the tables.
 *   **Customization**: Define the maximum questions allowed per row (default is 10) using `\MaxMCQPerRow{M}`. If the total number of MCQ questions exceeds `M`, it will automatically split into stacked table rows, separating each header and student writing block.
 
 ---
