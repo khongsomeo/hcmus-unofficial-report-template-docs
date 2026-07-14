@@ -75,9 +75,9 @@ This template is designed for creating quizzes, test papers, and exams at HCMUS 
 ### 🎨 Previews
 Here is a side-by-side preview of the compiled quiz layout:
 
-| Trang đề thi (Trống) | Trang đáp án |
-| :---: | :---: |
-| <img src="img/Quiz-Preview-Blank.png" alt="Trang đề thi (Trống)" width="140"/> | <img src="img/Quiz-Preview-Answer.png" alt="Trang đáp án" width="140"/> |
+| Trang đề thi (Trống) | Đáp án - Trang 1 | Đáp án - Trang 2 |
+| :---: | :---: | :---: |
+| <img src="img/Quiz-Preview-Blank.png" alt="Trang đề thi (Trống)" width="140"/> | <img src="img/Quiz-Preview-Answer-Page1.png" alt="Đáp án - Trang 1" width="140"/> | <img src="img/Quiz-Preview-Answer-Page2.png" alt="Đáp án - Trang 2" width="140"/> |
 
 ### 📖 User Guides
 
