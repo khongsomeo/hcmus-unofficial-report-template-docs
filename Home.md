@@ -68,21 +68,21 @@ All detailed setup, structure, and compilation guides have been consolidated int
 
 ---
 
-## 📝 Exam Template
+## 📝 Quiz Template
 
-This template is designed for creating exams, quizzes, and test papers at HCMUS using the standard LaTeX `exam` document class, featuring running headers, student identification blocks, listings syntax highlighting for source code, and automated solution formatting.
+This template is designed for creating quizzes, test papers, and exams at HCMUS using the standard LaTeX `exam` document class, featuring running headers, student identification blocks, listings syntax highlighting for source code, and automated solution formatting.
 
 ### 🎨 Previews
-Here is a side-by-side preview of the compiled exam layout:
+Here is a side-by-side preview of the compiled quiz layout:
 
 | Trang đề thi (Trống) | Trang đáp án |
 | :---: | :---: |
-| <img src="img/Exam-Preview-Blank.png" alt="Trang đề thi (Trống)" width="140"/> | <img src="img/Exam-Preview-Answer.png" alt="Trang đáp án" width="140"/> |
+| <img src="img/Quiz-Preview-Blank.png" alt="Trang đề thi (Trống)" width="140"/> | <img src="img/Quiz-Preview-Answer.png" alt="Trang đáp án" width="140"/> |
 
 ### 📖 User Guides
 
 All detailed setup, structure, and compilation guides have been consolidated into a single comprehensive page:
 
-👉 **[Go to Exam Template Documentation](Exam)**
+👉 **[Go to Quiz Template Documentation](Quiz)**
 
 

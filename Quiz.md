@@ -1,12 +1,12 @@
-# 📝 Exam/Quiz Class Template Documentation
+# 📝 Quiz Class Template Documentation
 
-This comprehensive guide covers the setup, structure, and compilation of the unofficial HCMUS **Exam/Quiz** LaTeX template (located in the [exam/](https://github.com/khongsomeo/hcmus-unofficial-report-template/tree/main/exam) directory of the repository).
+This comprehensive guide covers the setup, structure, and compilation of the unofficial HCMUS **Quiz** LaTeX template (located in the [quiz/](https://github.com/khongsomeo/hcmus-unofficial-report-template/tree/main/quiz) directory of the repository).
 
 ---
 
 ## 📌 Table of Contents
 1. [⚙️ Quick Setup in `main.tex`](#quick-setup-in-maintex)
-2. [📄 Exam Template Structure](#exam-template-structure)
+2. [📄 Quiz Template Structure](#quiz-template-structure)
 3. [🛠️ Toggling Solutions/Answers](#toggling-solutionsanswers)
 4. [💻 Source Code Highlighting](#source-code-highlighting)
 5. [🛠️ Local Compilation Guide](#local-compilation-guide)
@@ -15,10 +15,10 @@ This comprehensive guide covers the setup, structure, and compilation of the uno
 
 ## ⚙️ Quick Setup in `main.tex`
 
-Open [main.tex](https://github.com/khongsomeo/hcmus-unofficial-report-template/blob/main/exam/main.tex) and configure the metadata parameters at the top of the file:
+Open [main.tex](https://github.com/khongsomeo/hcmus-unofficial-report-template/blob/main/quiz/main.tex) and configure the metadata parameters at the top of the file:
 
 ```tex
-\documentclass[a4paper,14pt,oneside]{hcmusexam}
+\documentclass[a4paper,14pt,oneside]{hcmusquiz}
 
 \ExamName{Quiz 01}
 \ExamTime{20 mins}
@@ -39,14 +39,14 @@ Open [main.tex](https://github.com/khongsomeo/hcmus-unofficial-report-template/b
 
 ---
 
-## 📄 Exam Template Structure
+## 📄 Quiz Template Structure
 
 The template is organized as follows:
-*   `main.tex`: Entry driver file containing exam parameters and questions list.
-*   `hcmusexam.cls`: Custom LaTeX class file (inherits from standard `exam` class) containing margins, page boundaries, listings styling, headers, and name boxes.
+*   `main.tex`: Entry driver file containing quiz parameters and questions list.
+*   `hcmusquiz.cls`: Custom LaTeX class file (inherits from standard `exam` class) containing margins, page boundaries, listings styling, headers, and name boxes.
 *   **Identity Box (`addnamebox`)**: Invokes a clean box at the top of the first page containing fields for Full name, Student ID, and the optional bilingual note.
 *   **Questions block (`questions`)**: Standard `exam` class environment wrapping all questions (`\question`), multiple choices (`choices` environment), and solution blocks (`solution` environment).
-*   **End marker (`headline{END}`)**: Generates a centered, dotted line marking the end of the exam paper.
+*   **End marker (`headline{END}`)**: Generates a centered, dotted line marking the end of the quiz paper.
 
 ---
 
@@ -71,7 +71,7 @@ When enabled:
 
 The template supports both vertical and horizontal multiple-choice layout blocks:
 *   **Vertical Choices (`choices` environment)**: Standard vertical list block for long options.
-*   **Equalized Horizontal Choices (`oneparchoices` environment)**: Redefined inside `hcmusexam.cls` to distribute choices symmetrically across the page. Instead of being bunched together, options automatically stretch to fill the text width evenly using `\hfill`, keeping the margins aligned.
+*   **Equalized Horizontal Choices (`oneparchoices` environment)**: Redefined inside `hcmusquiz.cls` to distribute choices symmetrically across the page. Instead of being bunched together, options automatically stretch to fill the text width evenly using `\hfill`, keeping the margins aligned.
 
 ---
 
@@ -96,7 +96,7 @@ The class introduces a specialized command `\MCQAnswerBox{style}` to dynamically
 
 ## 💻 Source Code Highlighting
 
-The custom class `hcmusexam.cls` imports the `listings` package and pre-configures it for styling source code blocks (specifically tailored for C++ syntax).
+The custom class `hcmusquiz.cls` imports the `listings` package and pre-configures it for styling source code blocks (specifically tailored for C++ syntax).
 
 ```latex
 \begin{lstlisting}
@@ -114,13 +114,13 @@ This will automatically format keywords in blue, comments in green, and strings 
 ## 🛠️ Local Compilation Guide
 
 ### 1. Automated Compilation (Recommended)
-Navigate to the `exam/` directory and execute the provided helper script:
+Navigate to the `quiz/` directory and execute the provided helper script:
 ```bash
 bash build.sh
 ```
 
 ### 2. Manual Compilation
-If you prefer manual compilation, run the following command sequence inside the `exam/` directory:
+If you prefer manual compilation, run the following command sequence inside the `quiz/` directory:
 ```bash
 pdflatex main
 pdflatex main
